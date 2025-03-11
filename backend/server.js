@@ -1,11 +1,21 @@
 const sequelize = require("./database/db.js");
 const express = require("express");
+const bodyParser = require("body-parser");
 const dotenv = require("dotenv");
-
+const cors = require("cors");
 dotenv.config({ path: __dirname + "/.env.local" });
+
+const articleRoutes = require("./routes/articleRoutes");
+const commentRoutes = require("./routes/commentRoutes");
 
 const app = express();
 app.use(express.json());
+
+app.use(cors());
+app.use(bodyParser.json());
+
+app.use("/article", articleRoutes);
+app.use("/article", commentRoutes);
 
 const startServer = async () => {
   try {
