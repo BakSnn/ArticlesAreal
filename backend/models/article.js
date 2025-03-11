@@ -1,7 +1,5 @@
-import sequelize from "../db";
-import { DataTypes } from "sequelize";
-import Comment from './comment'
-
+const { DataTypes } = require("sequelize");
+const sequelize = require("../database/db");
 
 const Article = sequelize.define(
   "article",
@@ -16,16 +14,11 @@ const Article = sequelize.define(
       allowNull: false,
     },
     content: {
-      type: DataTypes.STRING,
+      type: DataTypes.TEXT,
       allowNull: false,
     },
   },
-  {
-    timestamps: true,
-  }
+  { timestamps: true }
 );
 
-Article.hasMany(Comment, { foreignKey: "articleId", onDelete: "cascade" });
-Comment.belongsTo(Article, { foreignKey: "articleId" });
-
-export default Article;
+module.exports = Article;
