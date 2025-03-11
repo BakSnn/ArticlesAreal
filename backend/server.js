@@ -1,11 +1,11 @@
-const sequelize = require("./db.js");
+const sequelize = require("./database/db.js");
 const express = require("express");
 const dotenv = require("dotenv");
+
 dotenv.config({ path: __dirname + "/.env.local" });
 
 const app = express();
 app.use(express.json());
-
 
 const startServer = async () => {
   try {
@@ -18,6 +18,10 @@ const startServer = async () => {
   } catch (e) {
     console.log(e);
   }
+
+  app.use("/api/articles", (req, res) => {
+    res.json({ message: "its articles" }).status(200);
+  });
 };
 
 startServer();
