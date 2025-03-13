@@ -14,3 +14,6 @@ export const updateComment = (articleId, commentId, commentData) =>
 
 export const deleteComment = (articleId, commentId) =>
   api.delete(`/article/${articleId}/comment/${commentId}/`);
+
+export const fetchCommentsByDate = (dateFrom, dateTo) =>
+  api.get(`/analytic/comments/?dateFrom=${dateFrom}&dateTo=${dateTo}`);
