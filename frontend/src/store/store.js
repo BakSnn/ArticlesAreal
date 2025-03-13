@@ -1,6 +1,6 @@
 import { createStore } from "vuex";
-import * as articles from "../api/articles";
-import * as comments from "../api/comments";
+import articles from "./articles";
+import comments from "./comments";
 
 export default createStore({
   modules: {
