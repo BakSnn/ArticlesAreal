@@ -1,12 +1,12 @@
 import { createRouter, createWebHistory } from "vue-router";
-import ArticleForm from "../components/ArticleForm.vue";
-import CommentsForm from "../components/CommentsForm.vue";
 import App from "../App.vue";
-
+import AddArticleViews from "../views/AddArticleView.vue";
+import ArticlesView from "../views/ArticlesView.vue";
 
 const routes = [
   { path: "/", component: App },
-  { path: "/about", component: ArticleForm },
+  { path: "/addArticle", component: AddArticleViews },
+  { path: "/articles", component: ArticlesView },
 ];
 
 const router = createRouter({
