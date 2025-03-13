@@ -1,23 +1,54 @@
-// Vuetify
+// vuetify
 import "vuetify/styles";
 import { createVuetify } from "vuetify";
 import * as components from "vuetify/components";
 import * as directives from "vuetify/directives";
+// icons
+import "@mdi/font/css/materialdesignicons.css";
 
-// Components
+// components
 import { createApp } from "vue";
-import "./style.css";
 import App from "./App.vue";
 
-// Store and router
+// store and router
 import router from "./router/routes";
 import store from "./store/store";
 
-// Added vuetify
+
 const vuetify = createVuetify({
   components,
   directives,
-  ssr: true,
+  theme: {
+    defaultTheme: "dark",
+    themes: {
+      dark: {
+        dark: true,
+        colors: {
+          background: "#121212",
+          surface: "#1D1D1D",
+          primary: "#6200EE",
+          secondary: "#03DAC5",
+          error: "#B00020",
+          info: "#2196F3",
+          success: "#4CAF50",
+          warning: "#FB8C00",
+        },
+      },
+      light: {
+        dark: false,
+        colors: {
+          background: "#FFFFFF",
+          surface: "#F5F5F5",
+          primary: "#6200EE",
+          secondary: "#03DAC5",
+          error: "#B00020",
+          info: "#2196F3",
+          success: "#4CAF50",
+          warning: "#FB8C00",
+        },
+      },
+    },
+  },
 });
 
 createApp(App).use(vuetify).use(router).use(store).mount("#app");
