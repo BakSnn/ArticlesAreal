@@ -16,14 +16,15 @@ function submit() {
 
 <template>
   <v-container>
-    <h2>Добавление статьи</h2>
-    <br />
-    <v-form>
-      <v-text-field v-model="title" label="Заголовок" required></v-text-field>
-      <v-textarea v-model="content" label="Содержание" required></v-textarea>
-      <v-btn @click="submit">Добавить</v-btn>
-    </v-form>
+    <div style="width: 200vh; max-width: 100%">
+      <v-form>
+        <v-text-field v-model="title" label="Заголовок" required></v-text-field>
+        <v-textarea v-model="content" label="Содержание" required></v-textarea>
+        <div class="d-flex justify-center">
+          <v-btn @click="submit">Добавить</v-btn>
+        </div>
+      </v-form>
+    </div>
   </v-container>
 </template>
-
 <style scoped></style>
