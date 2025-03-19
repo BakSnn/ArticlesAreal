@@ -5,7 +5,7 @@ import ArticlesView from "../views/ArticlesView.vue";
 
 const routes = [
   { path: "/", component: App },
-  { path: "/addArticle", component: AddArticleViews },
+  { path: "/add-article", component: AddArticleViews },
   { path: "/articles", component: ArticlesView },
 ];
 
