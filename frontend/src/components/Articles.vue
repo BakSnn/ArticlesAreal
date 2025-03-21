@@ -1,7 +1,7 @@
 <script setup>
 import { onMounted, computed, ref } from "vue";
 import { useStore } from "vuex";
-import Comments from "./Comments.vue";
+import Comments from "./CommentsAdd.vue";
 const store = useStore();
 
 const isEditing = ref(false);
@@ -46,54 +46,71 @@ function cancelEdit() {
   currentArticle.value = null;
 }
 </script>
-
 <template>
-  <v-container class="d-flex flex-column align-center justify-center">
-    <v-table class="text-center" max-width="800">
-      <thead>
-        <tr>
-          <th class="text-center">Заголовок</th>
-          <th class="text-center">Контент</th>
-          <th class="text-center">Рередактировать</th>
-          <th class="text-center">Удалить</th>
-          <th class="text-center">Добавить комментарий</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr v-for="article in articles" :key="article.id">
-          <td class="text-center">{{ article.title }}</td>
-          <td class="text-center">{{ article.content }}</td>
-          <td class="text-center">
-            <v-btn @click="editArticle(article)" color="green"
-              ><v-icon>mdi-note-edit-outline</v-icon></v-btn
-            >
-          </td>
-          <td class="text-center">
-            <v-btn @click="removeArticle(article.id)" color="red-lighten-1"
-              ><v-icon>mdi-delete-forever</v-icon></v-btn
-            >
-          </td>
-          <td>
-            <Comments :articleId="article.id" />
-          </td>
-        </tr>
-      </tbody>
-    </v-table>
+  <template v-if="articles.length === 0">
+    <v-container class="text-center">
+      <h3>Нет статей</h3>
+      <br />
+      <v-btn to="/add-article">Перейти к добавлению статьи</v-btn>
+    </v-container>
+  </template>
+  <template v-else>
+    <v-container class="d-flex flex-column align-center justify-center">
+      <v-table class="text-center" max-width="800">
+        <thead>
+          <tr>
+            <th class="text-center">Заголовок</th>
+            <th class="text-center">Контент</th>
+            <th class="text-center">Редактировать</th>
+            <th class="text-center">Удалить</th>
+            <th class="text-center">Добавить комментарий</th>
+            <th class="text-center">Открыть комментарии</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="article in articles" :key="article.id">
+            <td class="text-center">{{ article.title }}</td>
+            <td class="text-center">{{ article.content }}</td>
+            <td class="text-center">
+              <v-btn @click="editArticle(article)" color="green"
+                ><v-icon>mdi-note-edit-outline</v-icon></v-btn
+              >
+            </td>
+            <td class="text-center">
+              <v-btn @click="removeArticle(article.id)" color="red-lighten-1"
+                ><v-icon>mdi-delete-forever</v-icon></v-btn
+              >
+            </td>
+            <td>
+              <Comments :articleId="article.id" />
+            </td>
+            <td>
+              <v-btn
+                :to="{ name: 'ArticleDetail', params: { id: article.id } }"
+                color="blue"
+              >
+                <v-icon>mdi-comment-text-multiple-outline</v-icon>
+              </v-btn>
+            </td>
+          </tr>
+        </tbody>
+      </v-table>
 
-    <v-dialog v-model="isEditing" max-width="500px">
-      <v-card>
-        <v-card-title>Редактировать статью</v-card-title>
-        <v-card-text>
-          <v-text-field v-model="updatedTitle" label="Заголовок" />
-          <v-textarea v-model="updatedContent" label="Контент" rows="4" />
-        </v-card-text>
-        <v-card-actions>
-          <v-btn @click="cancelEdit" color="red">Отмена</v-btn>
-          <v-btn @click="saveArticle" color="green">Сохранить</v-btn>
-        </v-card-actions>
-      </v-card>
-    </v-dialog>
-  </v-container>
+      <v-dialog v-model="isEditing" max-width="500px">
+        <v-card>
+          <v-card-title>Редактировать статью</v-card-title>
+          <v-card-text>
+            <v-text-field v-model="updatedTitle" label="Заголовок" />
+            <v-textarea v-model="updatedContent" label="Контент" rows="4" />
+          </v-card-text>
+          <v-card-actions>
+            <v-btn @click="cancelEdit" color="red">Отмена</v-btn>
+            <v-btn @click="saveArticle" color="green">Сохранить</v-btn>
+          </v-card-actions>
+        </v-card>
+      </v-dialog>
+    </v-container>
+  </template>
 </template>
 
 <style scoped></style>
