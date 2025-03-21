@@ -18,6 +18,11 @@
 
           <span class="text-center">Добавление статьи</span>
         </v-btn>
+        <v-btn value="Комментариии" to="/article/:id">
+          <v-icon>mdi-comment-text-multiple-outline</v-icon>
+
+          <span class="text-center">Комментарии</span>
+        </v-btn>
       </v-bottom-navigation>
 
       <router-view />
