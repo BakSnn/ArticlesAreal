@@ -37,7 +37,9 @@ async function addComment() {
 </script>
 
 <template>
-  <v-btn @click="openDialog">X+</v-btn>
+  <v-btn @click="openDialog" color="info">
+    <v-icon> mdi-comment-edit-outline </v-icon>
+  </v-btn>
 
   <v-dialog v-model="isAddingAComment" width="500">
     <v-card>
