@@ -29,10 +29,6 @@ const startServer = async () => {
   } catch (e) {
     console.log(e);
   }
-
-  app.use("/api/articles", (req, res) => {
-    res.json({ message: "its articles" }).status(200);
-  });
 };
 
 startServer();
