@@ -4,11 +4,7 @@
   <v-app>
     <v-container>
       <v-bottom-navigation :elevation="0" grow mode="shift">
-        <v-btn value="Главная" to="/">
-          <v-icon>mdi-home</v-icon>
-          <span>Главная</span>
-        </v-btn>
-        <v-btn value="Статьи" to="/articles">
+        <v-btn value="Статьи" to="/">
           <v-icon>mdi-list-box-outline</v-icon>
 
           <span>Статьи</span>

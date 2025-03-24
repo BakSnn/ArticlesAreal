@@ -6,9 +6,8 @@ import ArticleDetailView from "../views/ArticleDetailView.vue";
 import CommentsByDateView from "../views/CommentsByDateView.vue";
 
 const routes = [
-  { path: "/", component: App },
+  { path: "/", component: ArticlesView },
   { path: "/add-article", component: AddArticleViews },
-  { path: "/articles", component: ArticlesView },
   { path: "/article/:id", component: ArticleDetailView, name: "ArticleDetail" },
   { path: "/comments-by-date", component: CommentsByDateView },
 ];
