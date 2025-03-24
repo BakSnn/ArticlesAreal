@@ -39,7 +39,7 @@ exports.getCommentsAnalytics = async (req, res) => {
 
 
     const groupedComments = comments.reduce((acc, comment) => {
-      const articleTitle = comment.Article ? comment.Article.title : "Без статьи";
+      const articleTitle = comment.article ? comment.article.title : "Без статьи";
       if (!acc[articleTitle]) {
         acc[articleTitle] = [];
       }

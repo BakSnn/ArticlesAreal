@@ -18,7 +18,7 @@
 
           <span class="text-center">Добавление статьи</span>
         </v-btn>
-        <v-btn value="Комментариии" to="/article/:id">
+        <v-btn value="Комментариии" to="/comments-by-date">
           <v-icon>mdi-comment-text-multiple-outline</v-icon>
 
           <span class="text-center">Комментарии</span>
