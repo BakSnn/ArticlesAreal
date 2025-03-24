@@ -3,12 +3,14 @@ import App from "../App.vue";
 import AddArticleViews from "../views/AddArticleView.vue";
 import ArticlesView from "../views/ArticlesView.vue";
 import ArticleDetailView from "../views/ArticleDetailView.vue";
+import CommentsByDateView from "../views/CommentsByDateView.vue";
 
 const routes = [
   { path: "/", component: App },
   { path: "/add-article", component: AddArticleViews },
   { path: "/articles", component: ArticlesView },
   { path: "/article/:id", component: ArticleDetailView, name: "ArticleDetail" },
+  { path: "/comments-by-date", component: CommentsByDateView },
 ];
 
 const router = createRouter({
