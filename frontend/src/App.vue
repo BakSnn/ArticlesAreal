@@ -14,10 +14,10 @@ function toggleTheme() {
 <template v-slot:input="{ on }">
   <v-app>
     <v-container>
-      <v-row justify="end" class="mb-4">
+      <v-row justify="end" class="mt-3">
         <v-btn
           @click="toggleTheme"
-          :color="isDarkTheme ? 'amber-lighten-2' : 'blue-grey lighten-2'"
+          :color="isDarkTheme ? 'yellow-darken-1' : 'grey-darken-2'"
           icon
         >
           <v-icon>{{
@@ -44,4 +44,8 @@ function toggleTheme() {
   </v-app>
 </template>
 
-<style scoped></style>
+<style scoped>
+::-webkit-scrollbar {
+  width: 0;
+}
+</style>
