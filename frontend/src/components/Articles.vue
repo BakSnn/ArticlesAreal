@@ -64,7 +64,7 @@ function cancelEdit() {
     </v-container>
   </template>
   <template v-else>
-    <v-container class="d-flex flex-column align-center justify-center">
+    <v-container class="d-flex flex-column align-center justify-center rounded-lg">
       <v-table class="text-center" max-width="800">
         <thead>
           <tr>

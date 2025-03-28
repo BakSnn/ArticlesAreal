@@ -14,12 +14,11 @@ import App from "./App.vue";
 import router from "./router/routes";
 import store from "./store/store";
 
-
 const vuetify = createVuetify({
   components,
   directives,
   theme: {
-    defaultTheme: "dark",
+    defaultTheme: store.state.theme,
     themes: {
       dark: {
         dark: true,
@@ -50,5 +49,12 @@ const vuetify = createVuetify({
     },
   },
 });
+
+store.watch(
+  (state) => state.theme,
+  (newTheme) => {
+    vuetify.theme.global.name.value = newTheme;
+  }
+);
 
 createApp(App).use(vuetify).use(router).use(store).mount("#app");
